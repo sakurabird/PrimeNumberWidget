@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.sakurafish.android.primenumberwidget"
+	android:versionCode="1"
+	android:versionName="1.0"
+	>
+	<uses-sdk android:minSdkVersion="4" />
+
+	<application
+		android:icon="@drawable/icon"
+		android:label="@string/app_name">
+		<receiver
+			android:name=".PrimeNumberWidgetProvider"
+			android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="com.sakurafish.android.primenumberwidget.UPDATE" />
+                <data 
+                	android:scheme="primenumber_widget" 
+                	android:host="com.sakurafish.android.primenumberwidget.widget" 
+                	android:path="/id/#" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+			</intent-filter>
+			<meta-data
+				android:name="android.appwidget.provider"
+				android:resource="@xml/widget" />
+		</receiver>
+		<activity
+			android:name=".SettingActivity"
+			android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<service android:name=".PrimeNumberWidgetService" />
+	</application>
+</manifest>
