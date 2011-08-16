@@ -7,9 +7,8 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
-import android.preference.PreferenceManager;
+import android.util.Log;
 
 /***
  * 素数表示ウィジェット
@@ -19,29 +18,29 @@ import android.preference.PreferenceManager;
  */
 public class PrimeNumberWidgetProvider extends AppWidgetProvider {
 
+    static final String TAG = "PrimeNumberWidgetProvider";
+    {
+        Log.d( TAG, "@@@---start---@@@" );
+    }
+
     static final Uri PRIMENUMBERWIDGET_URI = Uri.parse( "primenumber_widget://com.sakurafish.android.primenumberwidget.widget/id" );
     static final String FILTER_ACTION = "com.sakurafish.android.primenumberwidget.UPDATE";
-
-    Context mContext;
-
-    static String pref_setting_interval_minutes;
-    static String pref_setting_range_from;
-    static String pref_setting_range_to;
-    static String pref_setting_showtext;
-    static String pref_setting_favorite;
 
     @Override
     public void onEnabled( Context context ) {
         super.onEnabled( context );
 
-        mContext = context;
         // プリファレンスの値を読み込む
-        loadSetting();
-        Utils.storeValue();
+        Utils.loadSetting( context );
     }
 
     @Override
     public void onUpdate( Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds ) {
+
+        Utils.loadSetting( context );
+        // プリファレンスの値をミリ秒に変換
+        long interval = Utils.pref_setting_interval_minutes * 60 * 1000;
+
         // AppWidget単位に更新処理を行う
         for ( int i = 0; i < appWidgetIds.length; i++ ) {
 
@@ -51,10 +50,7 @@ public class PrimeNumberWidgetProvider extends AppWidgetProvider {
             long firstTime = System.currentTimeMillis();
             AlarmManager am = ( AlarmManager ) context.getSystemService( Activity.ALARM_SERVICE );
 
-            // TODO このコメント後で消す
-            // // 設定情報から更新時間を取得する
-            // long interval = Integer.parseInt( PreferenceManager.getDefaultSharedPreferences( context ).getString( "interval_key", "20" ) ) * 1000;
-            am.setRepeating( AlarmManager.RTC, firstTime, Utils.interval_millisecond, operation );
+            am.setRepeating( AlarmManager.RTC, firstTime, interval, operation );
             // 設定用のServiceを開始する
             Intent service = new Intent( context, PrimeNumberWidgetService.class );
             service.putExtra( PrimeNumberWidgetService.KEY_WIDGETID, id );
@@ -77,12 +73,6 @@ public class PrimeNumberWidgetProvider extends AppWidgetProvider {
             // Alarm削除を実行する
             am.cancel( operation );
 
-            // TODO このコメント後で消す
-            // // 設定を削除する
-            // SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences( context );
-            // Editor editor = pref.edit();
-            // editor.remove( Utils.getWidgetKey( id ) );
-            // editor.commit();
         }
     }
 
@@ -102,17 +92,4 @@ public class PrimeNumberWidgetProvider extends AppWidgetProvider {
         }
     }
 
-    /***
-     * プリファレンスの値を読み込む
-     * 
-     */
-    void loadSetting() {
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences( mContext );
-
-        pref_setting_interval_minutes = pref.getString( ( String ) mContext.getResources().getText( R.string.pref_key_interval_minutes ), "30" );
-        pref_setting_range_from = pref.getString( ( String ) mContext.getResources().getText( R.string.pref_key_range_from ), "2" );
-        pref_setting_range_to = pref.getString( ( String ) mContext.getResources().getText( R.string.pref_key_range_to ), "1000" );
-        pref_setting_showtext = pref.getString( ( String ) mContext.getResources().getText( R.string.pref_key_showtext ), "癒しの素数" );
-        pref_setting_favorite = pref.getString( ( String ) mContext.getResources().getText( R.string.pref_key_favorite ), "" );
-    }
 }

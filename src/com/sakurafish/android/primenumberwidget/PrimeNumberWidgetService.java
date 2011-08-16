@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import android.util.Log;
 
 /***
  * 素数を取得しウィジェットに表示
@@ -13,6 +14,10 @@ import android.os.IBinder;
  */
 public class PrimeNumberWidgetService extends Service {
 
+    static final String TAG = "PrimeNumberWidgetService";
+    {
+        Log.d( TAG, "@@@---start---@@@" );
+    }
     static final String KEY_WIDGETID = "key.widgetid";
     Context mContext;
 

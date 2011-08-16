@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<TextView
+		android:id="@+id/dialog_textview"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:text="@string/setting_title_favorite"
+		android:gravity="left"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+
+	<EditText
+		android:id="@+id/dialog_favorite"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:scrollHorizontally="true"
+		android:autoText="false"
+		android:capitalize="none"
+		android:gravity="fill_horizontal"
+		android:inputType="number"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</LinearLayout>

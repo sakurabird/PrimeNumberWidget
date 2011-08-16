@@ -73,11 +73,18 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content">
 		</TextView>
+		<CheckBox
+			android:id="@+id/setting_favorite_check"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:checked="false">
+		</CheckBox>
 		<EditText
 			android:id="@+id/setting_favorite"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:inputType="number">
+			android:inputType="number"
+			android:digits="0123456789">
 		</EditText>
 	</LinearLayout>
 </LinearLayout>

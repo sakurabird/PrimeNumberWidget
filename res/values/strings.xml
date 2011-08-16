@@ -5,5 +5,5 @@
     <string name="setting_title_range">素数の範囲</string>
     <string name="setting_title_range2">～</string>
     <string name="setting_title_showtext">ウィジェットに表示するテキスト</string>
-    <string name="setting_title_favorite">お気に入りの数</string>
+    <string name="setting_title_favorite">お気に入りの数を設定する</string>
 </resources>
