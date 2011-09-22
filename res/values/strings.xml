@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">素数表示ウィジェット</string>
-    <string name="setting_title_interval">更新感覚（分）</string>
+    <string name="setting_title_setup">設定する</string>
+    <string name="setting_summary">ウィジェットの表示設定</string>
+    <string name="setting_title_interval">更新間隔</string>
+    <string name="setting_title_textcolor">文字色</string>
+    <string name="setting_title_textcolor2">色を決定したら真ん中の丸い部分をクリックして下さい</string>
     <string name="setting_title_range">素数の範囲</string>
     <string name="setting_title_range2">～</string>
     <string name="setting_title_showtext">ウィジェットに表示するテキスト</string>
     <string name="setting_title_favorite">お気に入りの数を設定する</string>
+
+    <string name="setting_massage_interval">00:00の場合24時間後に設定します</string>
 </resources>

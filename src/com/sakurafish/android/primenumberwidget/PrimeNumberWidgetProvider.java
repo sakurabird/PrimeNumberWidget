@@ -18,78 +18,81 @@ import android.util.Log;
  */
 public class PrimeNumberWidgetProvider extends AppWidgetProvider {
 
-    static final String TAG = "PrimeNumberWidgetProvider";
-    {
-        Log.d( TAG, "@@@---start---@@@" );
-    }
+	static final String TAG = "PrimeNumberWidgetProvider";
+	{
+		Log.d( TAG, "@@@---start---@@@" );
+	}
 
-    static final Uri PRIMENUMBERWIDGET_URI = Uri.parse( "primenumber_widget://com.sakurafish.android.primenumberwidget.widget/id" );
-    static final String FILTER_ACTION = "com.sakurafish.android.primenumberwidget.UPDATE";
+	static final Uri PRIMENUMBERWIDGET_URI = Uri.parse( "primenumber_widget://com.sakurafish.android.primenumberwidget.widget/id" );
+	static final String FILTER_ACTION = "com.sakurafish.android.primenumberwidget.UPDATE";
 
-    @Override
-    public void onEnabled( Context context ) {
-        super.onEnabled( context );
+	@Override
+	public void onEnabled( Context context ) {
+		super.onEnabled( context );
 
-        // プリファレンスの値を読み込む
-        Utils.loadSetting( context );
-    }
+		// プリファレンスの値を読み込む
+		Utils.loadSetting( context );
+	}
 
-    @Override
-    public void onUpdate( Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds ) {
+	@Override
+	public void onUpdate( Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds ) {
 
-        Utils.loadSetting( context );
-        // プリファレンスの値をミリ秒に変換
-        long interval = Utils.pref_setting_interval_minutes * 60 * 1000;
+		Utils.loadSetting( context );
+		// プリファレンスの値をミリ秒に変換
+		long interval = Utils.pref_setting_interval_minutes * 60 * 1000;
+		Log.d( TAG, "onUpdate interval=" + interval );
 
-        // AppWidget単位に更新処理を行う
-        for ( int i = 0; i < appWidgetIds.length; i++ ) {
+		// AppWidget単位に更新処理を行う
+		for ( int i = 0; i < appWidgetIds.length; i++ ) {
 
-            int id = appWidgetIds[ i ];
-            Intent intent = Utils.createIntent( context, id );
-            PendingIntent operation = PendingIntent.getBroadcast( context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT );
-            long firstTime = System.currentTimeMillis();
-            AlarmManager am = ( AlarmManager ) context.getSystemService( Activity.ALARM_SERVICE );
+			int id = appWidgetIds[ i ];
+			Intent intent = Utils.createIntent( context, id );
+			PendingIntent operation = PendingIntent.getBroadcast( context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT );
+			long firstTime = System.currentTimeMillis();
+			AlarmManager am = ( AlarmManager ) context.getSystemService( Activity.ALARM_SERVICE );
 
-            am.setRepeating( AlarmManager.RTC, firstTime, interval, operation );
-            // 設定用のServiceを開始する
-            Intent service = new Intent( context, PrimeNumberWidgetService.class );
-            service.putExtra( PrimeNumberWidgetService.KEY_WIDGETID, id );
-            context.startService( service );
-        }
-    }
+			am.setRepeating( AlarmManager.RTC, firstTime, interval, operation );
+			// 設定用のServiceを開始する
+			Intent service = new Intent( context, PrimeNumberWidgetService.class );
+			service.putExtra( PrimeNumberWidgetService.KEY_WIDGETID, id );
+			context.startService( service );
+		}
+	}
 
-    @Override
-    public void onDeleted( Context context, int[] appWidgetIds ) {
-        super.onDeleted( context, appWidgetIds );
+	@Override
+	public void onDeleted( Context context, int[] appWidgetIds ) {
+		super.onDeleted( context, appWidgetIds );
 
-        // AppWidgetが削除されたら、Alarmをキャンセルして設定も削除する
-        for ( int i = 0; i < appWidgetIds.length; i++ ) {
-            // 削除するAlarmを特定するためのPendingIntentを作成する
-            int id = appWidgetIds[ i ];
-            Intent intent = Utils.createIntent( context, id );
-            PendingIntent operation = PendingIntent.getBroadcast( context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT );
-            AlarmManager am = ( AlarmManager ) context.getSystemService( Activity.ALARM_SERVICE );
+		// AppWidgetが削除されたら、Alarmをキャンセルして設定も削除する
+		for ( int i = 0; i < appWidgetIds.length; i++ ) {
+			// 削除するAlarmを特定するためのPendingIntentを作成する
+			int id = appWidgetIds[ i ];
+			Intent intent = Utils.createIntent( context, id );
+			PendingIntent operation = PendingIntent.getBroadcast( context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT );
+			AlarmManager am = ( AlarmManager ) context.getSystemService( Activity.ALARM_SERVICE );
 
-            // Alarm削除を実行する
-            am.cancel( operation );
+			// Alarm削除を実行する
+			am.cancel( operation );
 
-        }
-    }
+		}
+	}
 
-    @Override
-    public void onReceive( Context context, Intent intent ) {
-        super.onReceive( context, intent );
+	@Override
+	public void onReceive( Context context, Intent intent ) {
+		super.onReceive( context, intent );
+		Log.d( TAG, "onReceive" );
 
-        // Alarmから呼ばれた場合の処理を行う
-        String act = intent.getAction();
-        if ( act != null && act.equals( FILTER_ACTION ) ) {
-            Uri uri = intent.getData();
-            int id = Integer.parseInt( uri.getPathSegments().get( 1 ) );
-            // 設定用のServiceを開始する
-            Intent service = new Intent( context, PrimeNumberWidgetService.class );
-            service.putExtra( PrimeNumberWidgetService.KEY_WIDGETID, id );
-            context.startService( service );
-        }
-    }
+		// Alarmから呼ばれた場合の処理を行う
+		String act = intent.getAction();
+		if ( act != null && act.equals( FILTER_ACTION ) ) {
+			Log.d( TAG, "onReceive2" );
+			Uri uri = intent.getData();
+			int id = Integer.parseInt( uri.getPathSegments().get( 1 ) );
+			// 設定用のServiceを開始する
+			Intent service = new Intent( context, PrimeNumberWidgetService.class );
+			service.putExtra( PrimeNumberWidgetService.KEY_WIDGETID, id );
+			context.startService( service );
+		}
+	}
 
 }
