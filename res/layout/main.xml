@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
-	<TextView
-		android:id="@+id/Tv_PrimeNumber"
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:background="@drawable/rounded_corner"
-		android:text=""
-		android:gravity="center"
-		style="@style/style_primenumber" />
-	<TextView
-		android:id="@+id/Tv_showtext"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:gravity="center"
-		style="@style/style_showtext" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/Tv_PrimeNumber"
+        style="@style/style_primenumber"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/rounded_corner"
+        android:gravity="center"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/Tv_showtext"
+        style="@style/style_showtext"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" />
 
 </RelativeLayout>

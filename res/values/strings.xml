@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">素数表示ウィジェット</string>
-    <string name="setting_title_setup">設定する</string>
-    <string name="setting_summary">ウィジェットの表示設定</string>
-    <string name="setting_title_interval">更新間隔</string>
-    <string name="setting_title_textcolor">文字色</string>
-    <string name="setting_title_textcolor2">色を決定したら真ん中の丸い部分をクリックして下さい</string>
-    <string name="setting_title_range">素数の範囲</string>
-    <string name="setting_title_range2">～</string>
-    <string name="setting_title_showtext">ウィジェットに表示するテキスト</string>
-    <string name="setting_title_favorite">お気に入りの数を設定する</string>
 
-    <string name="setting_massage_interval">00:00の場合24時間後に設定します</string>
+    <string name="app_name">Prime Number</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="error_illegalNumber_range">Inputted into the range of a prime number except the numerical value.</string>
+    <string name="error_no_primenumber">A prime number does not exist in the inputted range.</string>
+    <string name="setting_title_setup">Set up</string>
+    <string name="setting_summary">A display setup of a widget</string>
+    <string name="setting_title_interval">Updating interval </string>
+    <string name="setting_title_now">Present</string>
+    <string name="setting_title_minutes">Minutes</string>
+    <string name="setting_title_textcolor">Character color </string>
+    <string name="setting_title_range">range of a prime number</string>
+    <string name="setting_title_range2"> - </string>
+    <string name="setting_title_showtext">The text displayed on a widget</string>
+    <string name="setting_hint_showtext"></string>
+    <string name="setting_title_favorite">Set up a favorite number</string>
+    <string name="setting_update">Update</string>
+    <string name="setting_restore_defaults">Restore default setup</string>
+    <string name="setting_massage_interval">In the case of 00:00, it sets up in 24 hours. </string>
+    <string name="setting_massage_updated">A setup was updated.</string>
+    <string name="setting_massage_dialog_restore">May I update a setup to a default?</string>
+    <string name="setting_massage_restore">A setup was updated to the default.</string>
+
 </resources>

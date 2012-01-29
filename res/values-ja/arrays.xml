@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="array_color_titles">
+        <item>白</item>
+        <item>黒</item>
+        <item>濃いグレー</item>
+        <item>薄いグレー</item>
+        <item>赤</item>
+        <item>青</item>
+        <item>緑</item>
+        <item>ピンク</item>
+        <item>オレンジ</item>
+    </string-array>
+
+    <array name="array_colors">
+        <item>#FFFFFF</item>
+        <item>#000000</item>
+        <item>#696969</item>
+        <item>#DCDCDC</item>
+        <item>#800000</item>
+        <item>#191970</item>
+        <item>#006400</item>
+        <item>#C71585</item>
+        <item>#FF4500</item>
+    </array>
+
+</resources>

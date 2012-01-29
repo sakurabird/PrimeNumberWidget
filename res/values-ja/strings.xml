@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">素数</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="error_illegalNumber_range">素数の範囲に数値以外が入力されました。</string>
+    <string name="error_no_primenumber">入力された範囲に素数は存在しません。</string>
+    <string name="setting_title_setup">設定する</string>
+    <string name="setting_summary">ウィジェットの表示設定</string>
+    <string name="setting_title_interval">更新間隔</string>
+    <string name="setting_title_now">現在</string>
+    <string name="setting_title_minutes">分</string>
+    <string name="setting_title_textcolor">文字色</string>
+    <string name="setting_title_range">素数の範囲</string>
+    <string name="setting_title_range2">～</string>
+    <string name="setting_title_showtext">ウィジェットに表示するテキスト</string>
+    <string name="setting_hint_showtext"></string>
+    <string name="setting_title_favorite">お気に入りの数を設定する</string>
+    <string name="setting_update">設定を更新する</string>
+    <string name="setting_restore_defaults">デフォルトの設定に戻す</string>
+    <string name="setting_massage_interval">00:00の場合24時間後に設定します</string>
+    <string name="setting_massage_updated">設定を更新しました</string>
+    <string name="setting_massage_dialog_restore">設定をデフォルトに更新してよろしいですか？</string>
+    <string name="setting_massage_restore">設定をデフォルトに更新しました</string>
+
+</resources>

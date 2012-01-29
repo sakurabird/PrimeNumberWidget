@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="default_interval_minutes">30</integer>
+
+    <color name="default_text_color">#FFFFFF</color>
+
+    <integer name="default_range_from">2</integer>
+    <integer name="default_range_to">100000</integer>
+
+    <string name="default_show_text">prime number</string>
+
+    <integer name="default_favorite">0</integer>
+
+</resources>

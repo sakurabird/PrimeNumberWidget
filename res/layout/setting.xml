@@ -1,124 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
-	<LinearLayout
-		android:id="@+id/linearLayout1"
-		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
-		android:padding="1dip"
-		android:orientation="vertical">
-		<LinearLayout
-			android:orientation="horizontal"
-			android:layout_width="fill_parent"
-			android:layout_height="fill_parent">
-			<LinearLayout
-				android:orientation="vertical"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_weight="1">
-				<TextView
-					android:text="@string/setting_title_interval"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"></TextView>
-				<TextView
-					android:id="@+id/setting_now_interval"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"></TextView>
-			</LinearLayout>
-			<Button
-				android:text="@string/setting_title_setup"
-				android:id="@+id/setting_title_interval"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:onClick="showTimePickerDialog"></Button>
-		</LinearLayout>
-		<LinearLayout
-			android:orientation="horizontal"
-			android:layout_width="fill_parent"
-			android:layout_height="fill_parent"
-			android:gravity="right">
-			<LinearLayout
-				android:orientation="vertical"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_weight="1">
-				<TextView
-					android:text="@string/setting_title_textcolor"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"></TextView>
-				<TextView
-					android:text="@string/setting_title_textcolor2"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"></TextView>
-			</LinearLayout>
-			<Button
-				android:text="@string/setting_title_setup"
-				android:id="@+id/setting_title_textcolor"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:onClick="showColorPickerDialog"></Button>
-		</LinearLayout>
-		<LinearLayout
-			android:orientation="horizontal"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
-			<TextView
-				android:text="@string/setting_title_range"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content">
-			</TextView>
-			<EditText
-				android:id="@+id/setting_range_from"
-				android:layout_weight="2"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:inputType="number">
-			</EditText>
-			<TextView
-				android:text="@string/setting_title_range2"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content">
-			</TextView>
-			<EditText
-				android:id="@+id/setting_range_to"
-				android:layout_weight="2"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:inputType="number">
-			</EditText>
-		</LinearLayout>
-		<LinearLayout
-			android:orientation="horizontal"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
-			<TextView
-				android:text="@string/setting_title_showtext"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content">
-			</TextView>
-			<EditText
-				android:id="@+id/setting_showtext"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content">
-			</EditText>
-		</LinearLayout>
-		<LinearLayout
-			android:orientation="horizontal"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
-			<TextView
-				android:text="@string/setting_title_favorite"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content">
-			</TextView>
-			<CheckBox
-				android:id="@+id/setting_favorite_check"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:checked="false">
-			</CheckBox>
-		</LinearLayout>
-	</LinearLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="1dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting_title_interval" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/setting_now_interval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                </TextView>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/setting_title_interval"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="showTimePickerDialog"
+                android:text="@string/setting_title_setup" >
+            </Button>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_title_textcolor" >
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spinner_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_title_range" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/setting_range_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:inputType="number" >
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_title_range2" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/setting_range_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:inputType="number" >
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_title_showtext" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/setting_showtext"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" >
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_title_favorite" >
+            </TextView>
+
+            <CheckBox
+                android:id="@+id/setting_favorite_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false" >
+            </CheckBox>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/setting_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="update"
+            android:text="@string/setting_update" />
+
+        <Button
+            android:id="@+id/setting_restore_defaults"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="showRestoreDefaultDialog"
+            android:text="@string/setting_restore_defaults" />
+    </LinearLayout>
+
 </ScrollView>
